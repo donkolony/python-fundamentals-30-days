@@ -1,0 +1,1 @@
+len(food_stuff_lt) // 2

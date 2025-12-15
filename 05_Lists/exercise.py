@@ -4,9 +4,6 @@
 
 # Exercises: Level 1
 
-"""
-
-"""
 
 print("--------------------------------------")
 print("Exercises: Level 1")

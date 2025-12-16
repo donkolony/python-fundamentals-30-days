@@ -3,7 +3,7 @@ B = {'item3', 'item2'}
 
 common = A.intersection(B)
 diff = A.difference(B)  # What exists in A but NOT in B
-sym_diff = A.symmetric_difference(B)
+sym_diff = A.symmetric_difference(B)  # (A - B) ∪ (B - A)
 
 print(A)
 print(B)
@@ -41,5 +41,5 @@ It removes anything they share and keeps:
 
     things only in A
     things only in B
-    
+
 """

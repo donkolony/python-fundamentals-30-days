@@ -20,7 +20,7 @@ dog["age"] = 12
 
 print(dog)
 
-# 3 Create a student dictionary and add required keys
+# 3 Create a student dictionary and add required keys  •
 print("\nQuestion 3")
 student = {
     "first_name": "Don",

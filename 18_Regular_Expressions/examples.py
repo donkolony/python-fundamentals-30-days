@@ -1,0 +1,188 @@
+import re
+
+""" MATCH Function """
+txt = 'I love to teach python and javaScript'
+match = re.match('I love to teach', txt, re.I)
+print(match)
+
+span = match.span()
+print(span)
+
+start, end = span
+print(start, end)
+
+substring = txt[start:end]
+print(substring)
+
+
+# Example 2
+print('\n')
+txt = 'I love to teach python and javaScript'
+match = re.match('I like to teach', txt, re.I)
+print(match)
+
+
+""" 
+# SEARCH Function
+    - Better than MATCH as it looks for the pattern throughout the text. It returns a match object with a first match that was found, otherwise it returns None
+"""
+print('\n')
+txt = '''Python is the most beautiful language that a human being has ever created.
+I recommend python for a first programming language'''
+match = re.search('first', txt, re.I)
+print(match)
+span = match.span()  # get start and end position of the matched word
+print(span)
+start, end = span  # unpack the start and end position
+print(start, end)
+substring = txt[start:end]
+print(substring)
+
+
+"""
+# FINDALL 
+    - Much bette than match and search function as this function checks for the pattern through the whole string and returns all the matches as a list
+    - findall() returns all the matches as a list
+"""
+print('\n')
+txt = '''Python is the most beautiful language that a human being has ever created.
+I recommend python for a first programming language'''
+# It returns a list
+matches = re.findall('language', txt, re.I)
+print(matches)
+
+matches = re.findall('python', txt, re.I)
+print(matches)
+
+# Removing the re.I (which considers both uppercase and lowercase)
+# Example 1: How to write pattern to include both uppercase and lowercase WITHOUT using re.I
+matches = re.findall('Python|python', txt)
+print(matches)
+
+# Example 2: How to write pattern to include both uppercase and lowercase WITHOUT using re.I
+matches = re.findall('[Pp]ython', txt)
+print(matches)
+
+""" REPLACING a Substring """
+print('\n')
+txt = '''Python is the most beautiful language that a human being has ever created.
+I recommend python for a first programming language'''
+match_replaced = re.sub('Python|python', 'JavaScript', txt, re.I)
+print(match_replaced)
+# OR
+match_replaced = re.sub('[Pp]ython', 'JavaScript', txt, re.I)
+print(match_replaced)
+
+print('\n')
+txt = '''%I a%m te%%a%%che%r% a%n%d %% I l%o%ve te%ach%ing. 
+T%he%re i%s n%o%th%ing as r%ewarding a%s e%duc%at%i%ng a%n%d e%m%p%ow%er%ing p%e%o%ple.
+I fo%und te%a%ching m%ore i%n%t%er%%es%ting t%h%an any other %jobs. 
+D%o%es thi%s m%ot%iv%a%te %y%o%u to b%e a t%e%a%cher?'''
+
+matches = re.sub('%', '', txt)
+print(matches)
+
+
+""" SPLITTING Text Using RegEx Split"""
+print('\n')
+txt = '''I am teacher and  I love teaching.
+There is nothing as rewarding as educating and empowering people.
+I found teaching more interesting than any other jobs.
+Does this motivate you to be a teacher?'''
+print(re.split('\n', txt))
+
+
+""" WRITING RegEx Patterns """
+print('\n')
+regex_pattern = r'apple'
+txt = 'Apple and banana are fruits. An old cliche says an apple a day a doctor way has been replaced by a banana a day keeps the doctor far far away. '
+matches = re.findall(regex_pattern, txt)
+print(matches)
+
+# To make case insensitive we need to add a flag
+matches = re.findall(regex_pattern, txt, re.I)
+print(matches)
+
+regex_pattern = r'[Aa]pple'
+matches = re.findall(regex_pattern, txt)
+print(matches)
+
+""" SQUARE Bracket """
+print('\n')
+regex_pattern = r'[Aa]pple'
+txt = 'Apple and banana are fruits. An old cliche says an apple a day a doctor way has been replaced by a banana a day keeps the doctor far far away.'
+matches = re.findall(regex_pattern, txt)
+print(matches)
+
+regex_pattern = r'[Aa]pple|[Bb]anana'
+txt = 'Apple and banana are fruits. An old cliche says an apple a day a doctor way has been replaced by a banana a day keeps the doctor far far away.'
+matches = re.findall(regex_pattern, txt)
+print(matches)
+
+""" Escape character (\) in RegEx """
+print('\n')
+regex_pattern = r'\d'
+txt = 'This regular expression example was made on December 6,  2019 and revised on July 8, 2021'
+matches = re.findall(regex_pattern, txt)
+print(matches)
+
+""" One or more times (+) """
+print('\n')
+regex_pattern = r'\d+'
+txt = 'This regular expression example was made on December 6,  2019 and revised on July 8, 2021'
+matches = re.findall(regex_pattern, txt)
+print(matches)
+
+""" Period (.) """
+print('\n')
+regex_pattern = r'[a].'
+txt = '''Apple and banana are fruits'''
+matches = re.findall(regex_pattern, txt)
+print(matches)
+
+regex_pattern = r'[a].+'
+matches = re.findall(regex_pattern, txt)
+print(matches)
+
+
+""" Zero or more times (*) """
+print('\n')
+regex_pattern = r'[a].*'
+txt = '''Apple and banana are fruits'''
+matches = re.findall(regex_pattern, txt)
+print(matches)
+
+""" Zero or one time (?) """
+print('\n')
+txt = '''I am not sure if there is a convention how to write the word e-mail.
+Some people write it as email others may write it as Email or E-mail.'''
+regex_pattern = r'[Ee]-?mail'
+matches = re.findall(regex_pattern, txt)
+print(matches)
+
+""" Quantifier in RegEx """
+print('\n')
+txt = 'This regular expression example was made on December 6,  2019 and revised on July 8, 2021'
+regex_pattern = r'\d{4}'
+matches = re.findall(regex_pattern, txt)
+print(matches)
+
+txt = 'This regular expression example was made on December 6,  2019 and revised on July 8, 2021'
+regex_pattern = r'\d{1,4}'
+matches = re.findall(regex_pattern, txt)
+print(matches)
+
+
+""" Cart ^ """
+# Starts with
+print('\n')
+txt = 'This regular expression example was made on December 6,  2019 and revised on July 8, 2021'
+regex_pattern = r'^This'
+matches = re.findall(regex_pattern, txt)
+print(matches)
+
+# Negation
+txt = 'This regular expression example was made on December 6,  2019 and revised on July 8, 2021'
+regex_pattern = r'[^A-Za-z ]+'
+matches = re.findall(regex_pattern, txt)
+print(matches)

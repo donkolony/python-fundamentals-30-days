@@ -211,8 +211,6 @@ def get_first_ten_countries(countries, n=10):
     return list(itertools.islice(countries, n))
 
 
-
-
 print(f"\nUsing Built-in Module (Itertools)")
 print(get_first_ten_countries(c, 10))
 

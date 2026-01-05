@@ -1,0 +1,82 @@
+[
+    {
+        "name": "Grade",
+        "data_types": "Target",
+        "default_task": "Categorical",
+        "attribute_types": "",
+        "instances": "Glioma grade class information (0 = \"LGG\"; 1 = \"GBM\")",
+        "attributes": "N/A"
+    },
+    {
+        "name": "Gender",
+        "data_types": "Feature",
+        "default_task": "Categorical",
+        "attribute_types": "Gender",
+        "instances": "Gender (0 = \"male\"; 1 = \"female\")",
+        "attributes": "N/A"
+    },
+    {
+        "name": "Age_at_diagnosis",
+        "data_types": "Feature",
+        "default_task": "Continuous",
+        "attribute_types": "Age",
+        "instances": "Age at diagnosis with the calculated number of days",
+        "attributes": "years"
+    },
+    {
+        "name": "Race",
+        "data_types": "Feature",
+        "default_task": "Categorical",
+        "attribute_types": "Race",
+        "instances": "Race  (0 = \"white\";  1 = \"black or african American\";  2 = \"asian\";  3 = \"american indian or alaska native\")",
+        "attributes": "N/A"
+    },
+    {
+        "name": "IDH1",
+        "data_types": "Feature",
+        "default_task": "Categorical",
+        "attribute_types": "",
+        "instances": "isocitrate dehydrogenase (NADP(+))1 (0 = NOT_MUTATED; 1= MUTATED)",
+        "attributes": "N/A"
+    },
+    {
+        "name": "TP53",
+        "data_types": "Feature",
+        "default_task": "Categorical",
+        "attribute_types": "",
+        "instances": "tumor protein p53 (0 = NOT_MUTATED; 1 = MUTATED)",
+        "attributes": "N/A"
+    },
+    {
+        "name": "ATRX",
+        "data_types": "Feature",
+        "default_task": "Categorical",
+        "attribute_types": "",
+        "instances": "ATRX chromatin remodeler (0 = NOT_MUTATED; 1 = MUTATED)",
+        "attributes": "N/A"
+    },
+    {
+        "name": "PTEN",
+        "data_types": "Feature",
+        "default_task": "Categorical",
+        "attribute_types": "",
+        "instances": "phosphatase and tensin homolog (0 = NOT_MUTATED; 1 = MUTATED)",
+        "attributes": "N/A"
+    },
+    {
+        "name": "EGFR",
+        "data_types": "Feature",
+        "default_task": "Categorical",
+        "attribute_types": "",
+        "instances": "epidermal growth factor receptor (0 = NOT_MUTATED; 1 = MUTATED)",
+        "attributes": "N/A"
+    },
+    {
+        "name": "CIC",
+        "data_types": "Feature",
+        "default_task": "Categorical",
+        "attribute_types": "",
+        "instances": "capicua transcriptional repressor (0 = NOT_MUTATED; 1 = MUTATED)",
+        "attributes": "N/A"
+    }
+]

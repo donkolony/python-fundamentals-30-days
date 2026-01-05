@@ -1,4 +1,3 @@
-
 from pprint import pprint
 from countries_data import countries_data
 import itertools
@@ -14,9 +13,9 @@ print("--------------------------------------")
 print("Exercises: Level 1")
 print("--------------------------------------")
 
-countries = ['Estonia', 'Finland', 'Sweden', 'Denmark', 'Norway', 'Iceland']
+countries = ["Estonia", "Finland", "Sweden", "Denmark", "Norway", "Iceland"]
 numbers = [-2, -1, 0, 1, 2, 3, 4, 5]
-names = ['Asabeneh', 'Lidiya', 'Ermias', 'Abraham']
+names = ["Asabeneh", "Lidiya", "Ermias", "Abraham"]
 
 # 1.1 Explain the difference between map, filter, and reduce.
 print("Question 1.1")
@@ -78,9 +77,9 @@ print("--------------------------------------")
 print("Exercises: Level 2")
 print("--------------------------------------")
 
-countries = ['Estonia', 'Finland', 'Sweden', 'Denmark', 'Norway', 'Iceland']
+countries = ["Estonia", "Finland", "Sweden", "Denmark", "Norway", "Iceland"]
 numbers = [-2, -1, 0, 1, 2, 3, 4, 5]
-names = ['Asabeneh', 'Lidiya', 'Ermias', 'Abraham']
+names = ["Asabeneh", "Lidiya", "Ermias", "Abraham"]
 
 # 2.1 Use map to create a new list by changing each country to uppercase in the countries list
 print("\nQuestion 2.1")
@@ -99,32 +98,34 @@ print(names_uppercase)
 
 # 2.4 Use filter to filter out countries containing 'land'.
 print("\nQuestion 2.4")
-countries_with_land = list(
-    filter(lambda country: "land" in country, countries))
+countries_with_land = list(filter(lambda country: "land" in country, countries))
 print(countries_with_land)
 
 # 2.5 Use filter to filter out countries having exactly six characters.
 print("\nQuestion 2.5")
-countries_length_six = list(
-    filter(lambda country: len(country) == 6, countries))
+countries_length_six = list(filter(lambda country: len(country) == 6, countries))
 print(countries_length_six)
 
 # 2.6 Use filter to filter out countries containing six letters and more in the country list.
 print("\nQuestion 2.6")
 countries_length_six_or_more = list(
-    filter(lambda country: len(country) >= 6, countries))
+    filter(lambda country: len(country) >= 6, countries)
+)
 print(countries_length_six_or_more)
 
 # 2.7 Use filter to filter out countries starting with an 'E'
 print("\nQuestion 2.7")
 countries_starting_with_e = list(
-    filter(lambda country: country.startswith("E"), countries))
+    filter(lambda country: country.startswith("E"), countries)
+)
 print(countries_starting_with_e)
 
 # 2.8 Chain two or more list iterators (eg. arr.map(callback).filter(callback).reduce(callback))
 print("\nQuestion 2.8")
-squared_even_numbers = reduce(lambda a, b: a + b, filter(lambda number: number %
-                                                         2 == 0, map(lambda number: number**2, numbers)))
+squared_even_numbers = reduce(
+    lambda a, b: a + b,
+    filter(lambda number: number % 2 == 0, map(lambda number: number**2, numbers)),
+)
 print(squared_even_numbers)
 
 
@@ -133,8 +134,7 @@ print("\nQuestion 2.9")
 
 
 def get_string_lists(lst):
-    strings_only = list(
-        filter(lambda item: isinstance(item, str), lst))
+    strings_only = list(filter(lambda item: isinstance(item, str), lst))
 
     return strings_only
 
@@ -163,7 +163,8 @@ print("\nQuestion 2.12")
 def categorize_countries(countries, pattern):
     pattern = pattern.lower()
     end_with_suffix = list(
-        filter(lambda country: country.lower().endswith(pattern), countries))
+        filter(lambda country: country.lower().endswith(pattern), countries)
+    )
 
     return end_with_suffix
 
@@ -200,18 +201,18 @@ def get_first_ten_countries(countries, n=10):
     return countries[:n]
 
 
-print(f"\nUsing Normal Slicing")
+print("\nUsing Normal Slicing")
 print(get_first_ten_countries(c, 10))
 
 
 """ REFACTOR USING BUILT-IN MODULES (ITERTOOLS) """
 
 
-def get_first_ten_countries(countries, n=10):
+def get_first_ten_countries1(countries, n=10):
     return list(itertools.islice(countries, n))
 
 
-print(f"\nUsing Built-in Module (Itertools)")
+print("\nUsing Built-in Module (Itertools)")
 print(get_first_ten_countries(c, 10))
 
 
@@ -238,8 +239,7 @@ print("\nQuestion 3.1.1")
 
 
 def sort_countries(countries, sort_type):
-    sorted_country = sorted(
-        countries, key=lambda item: item.get(sort_type))
+    sorted_country = sorted(countries, key=lambda item: item.get(sort_type))
 
     return sorted_country
 
@@ -259,7 +259,8 @@ def most_spoken_languages(countries, top_n=10):
             language_count[language] = language_count.get(language, 0) + 1
 
     top_spoken_languages = sorted(
-        language_count.items(), key=lambda item: item[1], reverse=True)[:top_n]
+        language_count.items(), key=lambda item: item[1], reverse=True
+    )[:top_n]
 
     return top_spoken_languages
 
@@ -277,7 +278,9 @@ def most_populated_countries(countries, top_n):
     )[:top_n]
 
     # Return list of tuples
-    return [(country["name"], country["population"]) for country in top_populated_countries]
+    return [
+        (country["name"], country["population"]) for country in top_populated_countries
+    ]
 
 
 print(most_populated_countries(countries_data, 5))

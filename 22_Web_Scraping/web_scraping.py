@@ -44,8 +44,9 @@ print("\nQuestion 1.2")
 
 url = "https://archive.ics.uci.edu/dataset/759/glioma+grading+clinical+and+mutation+features+dataset"
 response = requests.get(url)
+content = response.content
 
-soup = BeautifulSoup(response.content, "html.parser")
+soup = BeautifulSoup(content, "html.parser")
 
 # Find ALL tables
 tables = soup.find("table")
